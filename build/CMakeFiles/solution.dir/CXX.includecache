@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/astar.h
+point.h
+../include/point.h
+algorithm
+-
+stdio.h
+-
+vector
+-
+
+../include/point.h
+
+/home/yhqiu/pa2/src/astar.cpp
+astar.h
+/home/yhqiu/pa2/src/astar.h
+point.h
+/home/yhqiu/pa2/src/point.h
+
+/home/yhqiu/pa2/src/main.cpp
+astar.h
+/home/yhqiu/pa2/src/astar.h
+point.h
+/home/yhqiu/pa2/src/point.h
+stdio.h
+/home/yhqiu/pa2/src/stdio.h
+
+/home/yhqiu/pa2/src/point.cpp
+point.h
+/home/yhqiu/pa2/src/point.h
+stdio.h
+/home/yhqiu/pa2/src/stdio.h
+
