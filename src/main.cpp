@@ -29,5 +29,4 @@ int main() {
   delete display;
   delete gridmap;
   delete star;
-  return 0;
 }
