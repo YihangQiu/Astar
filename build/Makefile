@@ -150,6 +150,60 @@ src/astar.cpp.s:
 	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/astar.cpp.s
 .PHONY : src/astar.cpp.s
 
+src/display.o: src/display.cpp.o
+
+.PHONY : src/display.o
+
+# target to build an object file
+src/display.cpp.o:
+	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/display.cpp.o
+.PHONY : src/display.cpp.o
+
+src/display.i: src/display.cpp.i
+
+.PHONY : src/display.i
+
+# target to preprocess a source file
+src/display.cpp.i:
+	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/display.cpp.i
+.PHONY : src/display.cpp.i
+
+src/display.s: src/display.cpp.s
+
+.PHONY : src/display.s
+
+# target to generate assembly for a file
+src/display.cpp.s:
+	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/display.cpp.s
+.PHONY : src/display.cpp.s
+
+src/gridmap.o: src/gridmap.cpp.o
+
+.PHONY : src/gridmap.o
+
+# target to build an object file
+src/gridmap.cpp.o:
+	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/gridmap.cpp.o
+.PHONY : src/gridmap.cpp.o
+
+src/gridmap.i: src/gridmap.cpp.i
+
+.PHONY : src/gridmap.i
+
+# target to preprocess a source file
+src/gridmap.cpp.i:
+	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/gridmap.cpp.i
+.PHONY : src/gridmap.cpp.i
+
+src/gridmap.s: src/gridmap.cpp.s
+
+.PHONY : src/gridmap.s
+
+# target to generate assembly for a file
+src/gridmap.cpp.s:
+	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/gridmap.cpp.s
+.PHONY : src/gridmap.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -177,33 +231,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/point.o: src/point.cpp.o
-
-.PHONY : src/point.o
-
-# target to build an object file
-src/point.cpp.o:
-	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/point.cpp.o
-.PHONY : src/point.cpp.o
-
-src/point.i: src/point.cpp.i
-
-.PHONY : src/point.i
-
-# target to preprocess a source file
-src/point.cpp.i:
-	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/point.cpp.i
-.PHONY : src/point.cpp.i
-
-src/point.s: src/point.cpp.s
-
-.PHONY : src/point.s
-
-# target to generate assembly for a file
-src/point.cpp.s:
-	$(MAKE) -f CMakeFiles/solution.dir/build.make CMakeFiles/solution.dir/src/point.cpp.s
-.PHONY : src/point.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,12 +243,15 @@ help:
 	@echo "... src/astar.o"
 	@echo "... src/astar.i"
 	@echo "... src/astar.s"
+	@echo "... src/display.o"
+	@echo "... src/display.i"
+	@echo "... src/display.s"
+	@echo "... src/gridmap.o"
+	@echo "... src/gridmap.i"
+	@echo "... src/gridmap.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/point.o"
-	@echo "... src/point.i"
-	@echo "... src/point.s"
 .PHONY : help
 
 

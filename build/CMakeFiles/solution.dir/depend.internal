@@ -3,12 +3,22 @@
 
 CMakeFiles/solution.dir/src/astar.cpp.o
  ../include/astar.h
+ ../include/display.h
  ../include/point.h
  /home/yhqiu/pa2/src/astar.cpp
+CMakeFiles/solution.dir/src/display.cpp.o
+ ../include/display.h
+ ../include/point.h
+ /home/yhqiu/pa2/src/display.cpp
+CMakeFiles/solution.dir/src/gridmap.cpp.o
+ ../include/astar.h
+ ../include/display.h
+ ../include/gridmap.h
+ ../include/point.h
+ /home/yhqiu/pa2/src/gridmap.cpp
 CMakeFiles/solution.dir/src/main.cpp.o
  ../include/astar.h
+ ../include/display.h
+ ../include/gridmap.h
  ../include/point.h
  /home/yhqiu/pa2/src/main.cpp
-CMakeFiles/solution.dir/src/point.cpp.o
- ../include/point.h
- /home/yhqiu/pa2/src/point.cpp

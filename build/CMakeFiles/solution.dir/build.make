@@ -70,9 +70,35 @@ CMakeFiles/solution.dir/src/astar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/solution.dir/src/astar.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yhqiu/pa2/src/astar.cpp -o CMakeFiles/solution.dir/src/astar.cpp.s
 
+CMakeFiles/solution.dir/src/display.cpp.o: CMakeFiles/solution.dir/flags.make
+CMakeFiles/solution.dir/src/display.cpp.o: ../src/display.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/solution.dir/src/display.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/solution.dir/src/display.cpp.o -c /home/yhqiu/pa2/src/display.cpp
+
+CMakeFiles/solution.dir/src/display.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/solution.dir/src/display.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yhqiu/pa2/src/display.cpp > CMakeFiles/solution.dir/src/display.cpp.i
+
+CMakeFiles/solution.dir/src/display.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/solution.dir/src/display.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yhqiu/pa2/src/display.cpp -o CMakeFiles/solution.dir/src/display.cpp.s
+
+CMakeFiles/solution.dir/src/gridmap.cpp.o: CMakeFiles/solution.dir/flags.make
+CMakeFiles/solution.dir/src/gridmap.cpp.o: ../src/gridmap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/solution.dir/src/gridmap.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/solution.dir/src/gridmap.cpp.o -c /home/yhqiu/pa2/src/gridmap.cpp
+
+CMakeFiles/solution.dir/src/gridmap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/solution.dir/src/gridmap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yhqiu/pa2/src/gridmap.cpp > CMakeFiles/solution.dir/src/gridmap.cpp.i
+
+CMakeFiles/solution.dir/src/gridmap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/solution.dir/src/gridmap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yhqiu/pa2/src/gridmap.cpp -o CMakeFiles/solution.dir/src/gridmap.cpp.s
+
 CMakeFiles/solution.dir/src/main.cpp.o: CMakeFiles/solution.dir/flags.make
 CMakeFiles/solution.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/solution.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/solution.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/solution.dir/src/main.cpp.o -c /home/yhqiu/pa2/src/main.cpp
 
 CMakeFiles/solution.dir/src/main.cpp.i: cmake_force
@@ -83,34 +109,23 @@ CMakeFiles/solution.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/solution.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yhqiu/pa2/src/main.cpp -o CMakeFiles/solution.dir/src/main.cpp.s
 
-CMakeFiles/solution.dir/src/point.cpp.o: CMakeFiles/solution.dir/flags.make
-CMakeFiles/solution.dir/src/point.cpp.o: ../src/point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/solution.dir/src/point.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/solution.dir/src/point.cpp.o -c /home/yhqiu/pa2/src/point.cpp
-
-CMakeFiles/solution.dir/src/point.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/solution.dir/src/point.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yhqiu/pa2/src/point.cpp > CMakeFiles/solution.dir/src/point.cpp.i
-
-CMakeFiles/solution.dir/src/point.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/solution.dir/src/point.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yhqiu/pa2/src/point.cpp -o CMakeFiles/solution.dir/src/point.cpp.s
-
 # Object files for target solution
 solution_OBJECTS = \
 "CMakeFiles/solution.dir/src/astar.cpp.o" \
-"CMakeFiles/solution.dir/src/main.cpp.o" \
-"CMakeFiles/solution.dir/src/point.cpp.o"
+"CMakeFiles/solution.dir/src/display.cpp.o" \
+"CMakeFiles/solution.dir/src/gridmap.cpp.o" \
+"CMakeFiles/solution.dir/src/main.cpp.o"
 
 # External object files for target solution
 solution_EXTERNAL_OBJECTS =
 
 solution: CMakeFiles/solution.dir/src/astar.cpp.o
+solution: CMakeFiles/solution.dir/src/display.cpp.o
+solution: CMakeFiles/solution.dir/src/gridmap.cpp.o
 solution: CMakeFiles/solution.dir/src/main.cpp.o
-solution: CMakeFiles/solution.dir/src/point.cpp.o
 solution: CMakeFiles/solution.dir/build.make
 solution: CMakeFiles/solution.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable solution"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yhqiu/pa2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable solution"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/solution.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

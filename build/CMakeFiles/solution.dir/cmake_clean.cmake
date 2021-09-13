@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/solution.dir/src/astar.cpp.o"
+  "CMakeFiles/solution.dir/src/display.cpp.o"
+  "CMakeFiles/solution.dir/src/gridmap.cpp.o"
   "CMakeFiles/solution.dir/src/main.cpp.o"
-  "CMakeFiles/solution.dir/src/point.cpp.o"
   "solution"
   "solution.pdb"
 )
