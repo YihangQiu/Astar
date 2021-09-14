@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/solution.dir/src/astar.cpp.o CMakeFiles/solution.dir/src/display.cpp.o CMakeFiles/solution.dir/src/gridmap.cpp.o CMakeFiles/solution.dir/src/main.cpp.o  -o solution 
+/usr/bin/c++     CMakeFiles/solution.dir/src/astar.cpp.o CMakeFiles/solution.dir/src/display.cpp.o CMakeFiles/solution.dir/src/gridmap.cpp.o CMakeFiles/solution.dir/src/main.cpp.o  -o solution 

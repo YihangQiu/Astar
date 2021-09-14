@@ -63,6 +63,23 @@ public:
   void getNeighboringPointDown(Point *point);
   void computeNeighboringValue(vector<Point *> &neVec,vector<Point *> &_openList);
 
+
+
+
+Point *findWay_test(Point *beginPoint, Point *endPoint,
+                      vector<vector<Point *>> &allPoints,Display &display);
+  vector<Point *> getNeighboringPoint_test(Point *point, Display &display);
+  void getNeighboringPointLeftDown_test(Point *point,Display &display);
+  void getNeighboringPointLeftUp_test(Point *point, Display &display);
+  void getNeighboringPointRightUp_test(Point *point,Display &display);
+  void getNeighboringPointRightDown_test(Point *point,Display &display);
+  void getNeighboringPointRight_test(Point *point,Display &display);
+  void getNeighboringPointLeft_test(Point *point,Display &display);
+  void getNeighboringPointUp_test(Point *point, Display &display);
+  void getNeighboringPointDown_test(Point *point, Display &display);
+
+
+
 };
 
 #endif // INCLUDE_ASTAR_H_

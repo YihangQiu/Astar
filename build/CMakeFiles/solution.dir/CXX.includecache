@@ -23,6 +23,8 @@ point.h
 ../include/point.h
 stdio.h
 -
+vector
+-
 
 ../include/gridmap.h
 astar.h
@@ -45,6 +47,10 @@ point.h
 /home/yhqiu/pa3/Astar_copy/src/display.cpp
 display.h
 /home/yhqiu/pa3/Astar_copy/src/display.h
+assert.h
+-
+fstream
+-
 
 /home/yhqiu/pa3/Astar_copy/src/gridmap.cpp
 gridmap.h
