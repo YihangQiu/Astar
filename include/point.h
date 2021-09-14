@@ -3,10 +3,7 @@
 
 #include "display.h"
 enum class AType { ATYPE_UNKNOWN, ATYPE_CLOSED, ATYPE_OPENED, ATYPE_BARRIER };
-// enum class ADirection{
-//   MANHATTAN,
-//   INCLINE
-// };
+enum class ADirection { MANHATTAN, INCLINE };
 
 class Point {
 public:
@@ -17,7 +14,7 @@ public:
   int x;
   int y;
   AType type; //类型:障碍、开放列表、关闭列表
-  // ADirection direction;
+  ADirection direction;
   int f; // f = g+h
   int g;
   int h;

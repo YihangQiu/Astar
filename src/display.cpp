@@ -14,7 +14,7 @@ void Display::printInitMap(char map[MAX_X][MAX_Y], const int &width,
 
 void Display::printResultMap(char map[MAX_X][MAX_Y], const int &width,
                              const int &height) {
-  printf("\n(4) Found way and print the result map. \n");
+  printf("\n(4) Print the result map. \n");
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
       if (map[i][j] == '*') {
@@ -27,11 +27,10 @@ void Display::printResultMap(char map[MAX_X][MAX_Y], const int &width,
   }
 }
 
-// void modifyGridMap(Point *point, char mapdata[MAX_X][MAX_Y]) {
+// void Display::modifyResultMap(Point *point, char mapdata[MAX_X][MAX_Y]) {
 //   printf("\n----下面是路径点(倒序)-----\n");
 //   // while (point) {
 //   //   mapdata[point->x][point->y] = '*';
 //   //   printf("%d,%d\n", point->x, point->y);
 //   //   point = point->parent;
-//   // }
-// };
+// }
