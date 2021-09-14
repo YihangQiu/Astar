@@ -27,10 +27,3 @@ void Display::printResultMap(char map[MAX_X][MAX_Y], const int &width,
   }
 }
 
-// void Display::modifyResultMap(Point *point, char mapdata[MAX_X][MAX_Y]) {
-//   printf("\n----下面是路径点(倒序)-----\n");
-//   // while (point) {
-//   //   mapdata[point->x][point->y] = '*';
-//   //   printf("%d,%d\n", point->x, point->y);
-//   //   point = point->parent;
-// }

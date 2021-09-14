@@ -8,6 +8,9 @@
 #include <vector>
 using std::vector;
 
+const int D1 = 100;
+const int D2 = 140;
+
 class AStar {
 private:
   vector<Point *> _openList;      //开放列表
@@ -16,40 +19,6 @@ private:
   Point *_endPoint;
   Point *_curPoint;
   vector<vector<Point *>> _allPoints;
-  int get_h_octagonal(Point *point) {
-    int dx = abs(_endPoint->x - point->x);
-    int dy = abs(_endPoint->y - point->y);
-    int D1 = 100;
-    int D2 = 140; // https://zhuanlan.zhihu.com/p/108344917
-    return D1 * (dx + dy) + (D2 - 2 * D1) * std::min(dx, dy);
-  }
-  int get_f_octagonal(Point *point) {
-    return (point->g + get_h_octagonal(point));
-  }
-  int get_h_manhattan(Point *point) {
-    return (abs(_endPoint->y - point->y) + abs(_endPoint->x - point->x)) * 100;
-  }
-  int get_f_manhattan(Point *point) {
-    return (point->g + get_h_manhattan(point));
-  }
-  int get_h_euclidean(Point *point) {
-    return sqrt((_endPoint->y - point->y) * (_endPoint->y - point->y) +
-                (_endPoint->x - point->x) * (_endPoint->x - point->x)) *
-           100;
-  }
-  int get_f_euclidean(Point *point) {
-    return (point->g + get_h_euclidean(point));
-  }
-
-  vector<Point *> getNeighboringPoint(Point *point);
-  void getNeighboringPointLeftDown(Point *point);
-  void getNeighboringPointLeftUp(Point *point);
-  void getNeighboringPointRightUp(Point *point);
-  void getNeighboringPointRightDown(Point *point);
-  void getNeighboringPointRight(Point *point);
-  void getNeighboringPointLeft(Point *point);
-  void getNeighboringPointUp(Point *point);
-  void getNeighboringPointDown(Point *point);
 
 public:
   AStar() : _endPoint(nullptr), _curPoint(nullptr){};
@@ -61,6 +30,39 @@ public:
   };
   Point *findWay(Point *beginPoint, Point *endPoint,
                  vector<vector<Point *>> &allPoints);
+  int get_h_manhattan(Point *point) {
+    return (abs(_endPoint->y - point->y) + abs(_endPoint->x - point->x)) * D1;
+  }
+  int get_h_euclidean(Point *point) {
+    return sqrt((_endPoint->y - point->y) * (_endPoint->y - point->y) +
+                (_endPoint->x - point->x) * (_endPoint->x - point->x)) *
+           D1;
+  }
+  int get_h_octagonal(Point *point) {
+    return D1 * (abs(_endPoint->x - point->x) + abs(_endPoint->y - point->y)) +
+           (D2 - 2 * D1) * std::min(abs(_endPoint->x - point->x),
+                                    abs(_endPoint->y - point->y));
+  }
+  int get_f_manhattan(Point *point) {
+    return (point->g + get_h_manhattan(point));
+  }
+  int get_f_euclidean(Point *point) {
+    return (point->g + get_h_euclidean(point));
+  }
+  int get_f_octagonal(Point *point) {
+    return (point->g + get_h_octagonal(point));
+  }
+  vector<Point *> getNeighboringPoint(Point *point);
+  void getNeighboringPointLeftDown(Point *point);
+  void getNeighboringPointLeftUp(Point *point);
+  void getNeighboringPointRightUp(Point *point);
+  void getNeighboringPointRightDown(Point *point);
+  void getNeighboringPointRight(Point *point);
+  void getNeighboringPointLeft(Point *point);
+  void getNeighboringPointUp(Point *point);
+  void getNeighboringPointDown(Point *point);
+  void computeNeighboringValue(vector<Point *> &neVec,vector<Point *> &_openList);
+
 };
 
 #endif // INCLUDE_ASTAR_H_

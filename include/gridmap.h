@@ -4,7 +4,6 @@
 #include "display.h"
 #include "point.h"
 
-
 class GridMap {
 private:
 public:
