@@ -21,7 +21,7 @@ private:
     int dy = abs(_endPoint->y - point->y);
     int D1 = 100;
     int D2 = 140; // https://zhuanlan.zhihu.com/p/108344917
-    return D1 * (dx + dy) + (D2 - 2 * D1) * std::min(dx,dy);
+    return D1 * (dx + dy) + (D2 - 2 * D1) * std::min(dx, dy);
   }
   int get_f_octagonal(Point *point) {
     return (point->g + get_h_octagonal(point));
@@ -42,6 +42,14 @@ private:
   }
 
   vector<Point *> getNeighboringPoint(Point *point);
+  void getNeighboringPointLeftDown(Point *point);
+  void getNeighboringPointLeftUp(Point *point);
+  void getNeighboringPointRightUp(Point *point);
+  void getNeighboringPointRightDown(Point *point);
+  void getNeighboringPointRight(Point *point);
+  void getNeighboringPointLeft(Point *point);
+  void getNeighboringPointUp(Point *point);
+  void getNeighboringPointDown(Point *point);
 
 public:
   AStar() : _endPoint(nullptr), _curPoint(nullptr){};

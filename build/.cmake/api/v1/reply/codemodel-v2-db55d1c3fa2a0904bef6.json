@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "solution::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-solution-e09722b74d971fd25964.json",
+					"jsonFile" : "target-solution-70d747f3e836c8856085.json",
 					"name" : "solution",
 					"projectIndex" : 0
 				}
@@ -48,8 +48,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/yhqiu/pa2/build",
-		"source" : "/home/yhqiu/pa2"
+		"build" : "/home/yhqiu/pa3/Astar_copy/build",
+		"source" : "/home/yhqiu/pa3/Astar_copy"
 	},
 	"version" : 
 	{

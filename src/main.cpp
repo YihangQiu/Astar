@@ -4,10 +4,6 @@
 #include "point.h"
 #include "stdio.h"
 
-#include <assert.h>
-#include <fstream>
-using std::ifstream;
-
 void modifyResultMap(Point *point, char mapdata[MAX_X][MAX_Y]) {
   while (point) {
     mapdata[point->x][point->y] = '*';
@@ -16,17 +12,6 @@ void modifyResultMap(Point *point, char mapdata[MAX_X][MAX_Y]) {
 }
 
 int main() {
-
-
-  // ifstream mapfile("../testcase/map.txt");
-  // assert(mapfile.is_open());
-  // printf("mapfile is open\n");
-  // std::string line;
-  // std::vector<char> line1;
-  // while (getline(mapfile, line)) {
-
-  //   /* code */
-  // }
 
   char mapdata[MAX_X][MAX_Y] = {
       {'1', '1', '1', '1', '0', '0', '0', '0'},

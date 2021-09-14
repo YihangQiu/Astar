@@ -2,6 +2,7 @@
 #define INCLUDE_POINT_H_
 
 #include "display.h"
+
 enum class AType { ATYPE_UNKNOWN, ATYPE_CLOSED, ATYPE_OPENED, ATYPE_BARRIER };
 enum class ADirection { MANHATTAN, INCLINE };
 
@@ -13,9 +14,9 @@ public:
   ~Point(){};
   int x;
   int y;
-  AType type; //类型:障碍、开放列表、关闭列表
+  AType type;
   ADirection direction;
-  int f; // f = g+h
+  int f;
   int g;
   int h;
   Point *parent;

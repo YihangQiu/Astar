@@ -31,8 +31,8 @@ Point *AStar::findWay(Point *beginPoint, Point *endPoint,
     ++count;
     //获取最小值的节点
     _curPoint = _openList[0];
-    printf("\nstep[%d]:tmpoint[%d][%d] is selected\n", count,
-           _curPoint->x, _curPoint->y);
+    printf("\nstep[%d]:tmpoint[%d][%d] is selected\n", count, _curPoint->x,
+           _curPoint->y);
     _openList.erase(_openList.begin());
     _curPoint->type = AType::ATYPE_CLOSED;
     _closeList.push_back(_curPoint);
@@ -91,54 +91,82 @@ Point *AStar::findWay(Point *beginPoint, Point *endPoint,
 
 vector<Point *> AStar::getNeighboringPoint(Point *point) {
   _neighbourList.clear();
+  getNeighboringPointLeftDown(point);
+  getNeighboringPointLeftUp(point);
+  getNeighboringPointRightUp(point);
+  getNeighboringPointRightDown(point);
+  getNeighboringPointRight(point);
+  getNeighboringPointLeft(point);
+  getNeighboringPointUp(point);
+  getNeighboringPointDown(point);
+  return _neighbourList;
+}
+
+void AStar::getNeighboringPointLeftDown(Point *point) {
   if (point->x > 0 && point->y > 0) {
     if (_allPoints[point->x - 1][point->y - 1]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x - 1][point->y - 1]->direction = ADirection::INCLINE;
       _neighbourList.push_back(_allPoints[point->x - 1][point->y - 1]);
     }
   }
+}
+void AStar::getNeighboringPointLeftUp(Point *point) {
   if (point->x > 0 && point->y < MAX_Y - 1) {
     if (_allPoints[point->x - 1][point->y + 1]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x - 1][point->y + 1]->direction = ADirection::INCLINE;
       _neighbourList.push_back(_allPoints[point->x - 1][point->y + 1]);
     }
   }
+}
+void AStar::getNeighboringPointRightUp(Point *point) {
   if (point->x < MAX_X - 1 && point->y < MAX_Y - 1) {
     if (_allPoints[point->x + 1][point->y + 1]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x + 1][point->y + 1]->direction = ADirection::INCLINE;
       _neighbourList.push_back(_allPoints[point->x + 1][point->y + 1]);
     }
   }
+}
+void AStar::getNeighboringPointRightDown(Point *point) {
   if (point->x < MAX_X - 1 && point->y > 0) {
     if (_allPoints[point->x + 1][point->y - 1]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x + 1][point->y - 1]->direction = ADirection::INCLINE;
       _neighbourList.push_back(_allPoints[point->x + 1][point->y - 1]);
     }
   }
+}
+
+void AStar::getNeighboringPointRight(Point *point) {
   if (point->x < MAX_X - 1) {
     if (_allPoints[point->x + 1][point->y]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x + 1][point->y]->direction = ADirection::MANHATTAN;
       _neighbourList.push_back(_allPoints[point->x + 1][point->y]);
     }
   }
+}
+
+void AStar::getNeighboringPointLeft(Point *point) {
   if (point->x > 0) {
     if (_allPoints[point->x - 1][point->y]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x - 1][point->y]->direction = ADirection::MANHATTAN;
       _neighbourList.push_back(_allPoints[point->x - 1][point->y]);
     }
   }
+}
+
+void AStar::getNeighboringPointUp(Point *point) {
   if (point->y < MAX_Y - 1) {
     if (_allPoints[point->x][point->y + 1]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x][point->y + 1]->direction = ADirection::MANHATTAN;
       _neighbourList.push_back(_allPoints[point->x][point->y + 1]);
     }
   }
+}
+
+void AStar::getNeighboringPointDown(Point *point) {
   if (point->y > 0) {
     if (_allPoints[point->x][point->y - 1]->type != AType::ATYPE_BARRIER) {
       _allPoints[point->x][point->y - 1]->direction = ADirection::MANHATTAN;
       _neighbourList.push_back(_allPoints[point->x][point->y - 1]);
     }
   }
-
-  return _neighbourList;
 }
