@@ -23,7 +23,7 @@ enum class Type {
 enum class Direction { MANHATTAN, INCLINE };
 
 class Point {
-  
+
 public:
   Point()
       : x_(0), y_(0), h_(0), f_(0), g_(0), parent_(nullptr),
@@ -31,6 +31,12 @@ public:
   ~Point(){};
   bool operator==(const Point &point) {
     if (x_ == point.x_ && y_ == point.y_) {
+      return true;
+    }
+    return false;
+  }
+  bool operator!=(const Point &point) {
+    if (x_ != point.x_ || y_ != point.y_) {
       return true;
     }
     return false;
