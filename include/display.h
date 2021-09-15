@@ -32,7 +32,7 @@ public:
   void printResultMap(char map[MAX_X][MAX_Y], const int &width,
                       const int &height);
 
-  void printResultMap_test(Display &display);
+  void printResultMap_test();
 };
 
 #endif // INCLUDE_DISPLAY_H_

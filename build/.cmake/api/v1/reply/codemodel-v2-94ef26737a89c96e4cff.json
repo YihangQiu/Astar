@@ -18,7 +18,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -38,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "solution::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-solution-70d747f3e836c8856085.json",
+					"jsonFile" : "target-solution-Debug-d9a26368d64b2d1f314d.json",
 					"name" : "solution",
 					"projectIndex" : 0
 				}
