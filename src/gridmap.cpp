@@ -14,13 +14,25 @@ void GridMap::createGridMap(Display &display) {
     }
     map_test.push_back(tmp);
   }
-  printf("\n(2) Initialize the coordinates, type, cost, "
-         "and parent pointer of each node. \n");
+  printf("\e[0;32m[SUCCESS]\033[0m gridmap->createGridMap(): Initialize the "
+         "coordinates, type, cost and parent pointer of each node. \n");
 }
 
-void GridMap::modifyResultmap(Point *point, Display &display) {
+void GridMap::printResultMap(Point *point, Display &display) {
   while (point) {
-    display.get_mapdata()[point->x][point->y] = '*';
+    point->type = AType::ATYPE_PATH;
     point = point->parent;
+  }
+  printf("\e[0;32m[SUCCESS]\033[0m gridmap->printResultmap(): Print the "
+         "result map.\n");
+  for (int i = 0; i < display.get_x_size(); ++i) {
+    for (int j = 0; j < display.get_y_size(); ++j) {
+      if (map_test[i][j]->type == AType::ATYPE_PATH) {
+        printf("\e[1;31m*\t\033[0m");
+      } else {
+        printf("%c\t", display.get_mapdata()[i][j]);
+      }
+    }
+    printf("\n");
   }
 }

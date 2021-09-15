@@ -11,6 +11,7 @@ using std::vector;
 const int D1 = 100;
 const int D2 = 140;
 
+namespace algorithms {
 class AStar {
 private:
   vector<Point *> _openList;      //开放列表
@@ -66,5 +67,7 @@ public:
   void getNeighboringPointUp_test(Point *point, Display &display);
   void getNeighboringPointDown_test(Point *point, Display &display);
 };
+
+} // namespace algorithms
 
 #endif // INCLUDE_ASTAR_H_

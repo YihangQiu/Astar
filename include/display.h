@@ -6,6 +6,7 @@
 #include <vector>
 using std::vector;
 
+namespace resource {
 class Display {
 private:
   int max_x = 0;
@@ -22,7 +23,8 @@ public:
   int get_y_size() { return max_y; }
   vector<vector<char>> &get_mapdata() { return mapdata_test; }
   void printInitMap();
-  void printResultMap_test();
 };
+
+} // namespace resource
 
 #endif // INCLUDE_DISPLAY_H_

@@ -2,11 +2,10 @@
 #include "display.h"
 #include "gridmap.h"
 #include "point.h"
-#include "stdio.h"
 
 int main() {
 
-  Display *display = new Display();
+  resource::Display *display = new resource::Display();
   GridMap *gridmap = new GridMap();
   AStar *star = new AStar();
 
@@ -16,8 +15,7 @@ int main() {
   Point *point_test = star->findWay_test(gridmap->get_start_point_test(0, 0),
                                          gridmap->get_end_point_test(3, 7),
                                          gridmap->map_test, *display);
-  gridmap->modifyResultmap(point_test, *display);
-  display->printResultMap_test();
+  gridmap->printResultMap(point_test, *display);
 
   delete display;
   delete gridmap;

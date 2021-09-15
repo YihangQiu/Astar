@@ -3,7 +3,7 @@
 
 #include "display.h"
 
-enum class AType { ATYPE_UNKNOWN, ATYPE_CLOSED, ATYPE_OPENED, ATYPE_BARRIER };
+enum class AType { ATYPE_UNKNOWN, ATYPE_CLOSED, ATYPE_OPENED, ATYPE_BARRIER, ATYPE_PATH };
 enum class ADirection { MANHATTAN, INCLINE };
 
 class Point {

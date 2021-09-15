@@ -7,8 +7,8 @@ bool mySort(const Point *p1, const Point *p2) { return p1->f < p2->f; }
 Point *AStar::findWay_test(Point *beginPoint, Point *endPoint,
                            vector<vector<Point *>> &allPoints,
                            Display &display) {
-  printf("\n(3) Finding the shortest path using AStar Algorithms ...\n"
-         "\n**** The startpoint[%d][%d]  ->  The endpoint[%d][%d] **** \n",
+  printf("\e[0;32m[SUCCESS]\033[0m point->findWay(): Finding the shortest path using AStar Algorithms.\n"
+         "\e[0;34mThe startpoint:[%d][%d] ---> The endpoint:[%d][%d]\033[0m\n",
          beginPoint->x, beginPoint->y, endPoint->x, endPoint->y);
   _allPoints = allPoints;
   _endPoint = endPoint;
@@ -27,7 +27,7 @@ Point *AStar::findWay_test(Point *beginPoint, Point *endPoint,
   do {
     ++count;
     _curPoint = _openList[0];
-    printf("\nstep[%d]:tmpoint[%d][%d] is selected\n", count, _curPoint->x,
+    printf("\e[0;34mStep %d: point[%d][%d] is selected\033[0m \n", count, _curPoint->x,
            _curPoint->y);
     _openList.erase(_openList.begin());
     _curPoint->type = AType::ATYPE_CLOSED;
@@ -145,11 +145,11 @@ void AStar::computeNeighboringValue(vector<Point *> &neVec,
       tmpoint->parent = _curPoint;
       if (tmpoint->direction == ADirection::MANHATTAN) {
         tmpoint->g = _curPoint->g + D1;
-        printf("tmpoint[%d][%d]:\tvalue_G=%d", tmpoint->x, tmpoint->y,
+        printf("point[%d][%d]:\tvalue_G=%d", tmpoint->x, tmpoint->y,
                tmpoint->g);
       } else if (tmpoint->direction == ADirection::INCLINE) {
         tmpoint->g = _curPoint->g + D2;
-        printf("tmpoint[%d][%d]:\tvalue_G=%d", tmpoint->x, tmpoint->y,
+        printf("point[%d][%d]:\tvalue_G=%d", tmpoint->x, tmpoint->y,
                tmpoint->g);
       }
       tmpoint->h = get_h_octagonal(tmpoint);
@@ -167,7 +167,7 @@ void AStar::computeNeighboringValue(vector<Point *> &neVec,
         }
         tmpoint->f = get_f_octagonal(tmpoint);
       }
-      printf("tmpoint[%d][%d]:\tvalue_G=%d\tvalue_H=%d\tvalue_F=%d\n",
+      printf("point[%d][%d]:\tvalue_G=%d\tvalue_H=%d\tvalue_F=%d\n",
              tmpoint->x, tmpoint->y, tmpoint->g, tmpoint->h, tmpoint->f);
     }
   }
