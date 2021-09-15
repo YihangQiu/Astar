@@ -28,8 +28,6 @@ public:
     _neighbourList.clear();
     _allPoints.clear();
   };
-  Point *findWay(Point *beginPoint, Point *endPoint,
-                 vector<vector<Point *>> &allPoints);
   int get_h_manhattan(Point *point) {
     return (abs(_endPoint->y - point->y) + abs(_endPoint->x - point->x)) * D1;
   }
@@ -52,34 +50,21 @@ public:
   int get_f_octagonal(Point *point) {
     return (point->g + get_h_octagonal(point));
   }
-  vector<Point *> getNeighboringPoint(Point *point);
-  void getNeighboringPointLeftDown(Point *point);
-  void getNeighboringPointLeftUp(Point *point);
-  void getNeighboringPointRightUp(Point *point);
-  void getNeighboringPointRightDown(Point *point);
-  void getNeighboringPointRight(Point *point);
-  void getNeighboringPointLeft(Point *point);
-  void getNeighboringPointUp(Point *point);
-  void getNeighboringPointDown(Point *point);
-  void computeNeighboringValue(vector<Point *> &neVec,vector<Point *> &_openList);
 
+  void computeNeighboringValue(vector<Point *> &neVec,
+                               vector<Point *> &_openList);
 
-
-
-Point *findWay_test(Point *beginPoint, Point *endPoint,
-                      vector<vector<Point *>> &allPoints,Display &display);
+  Point *findWay_test(Point *beginPoint, Point *endPoint,
+                      vector<vector<Point *>> &allPoints, Display &display);
   vector<Point *> getNeighboringPoint_test(Point *point, Display &display);
-  void getNeighboringPointLeftDown_test(Point *point,Display &display);
+  void getNeighboringPointLeftDown_test(Point *point, Display &display);
   void getNeighboringPointLeftUp_test(Point *point, Display &display);
-  void getNeighboringPointRightUp_test(Point *point,Display &display);
-  void getNeighboringPointRightDown_test(Point *point,Display &display);
-  void getNeighboringPointRight_test(Point *point,Display &display);
-  void getNeighboringPointLeft_test(Point *point,Display &display);
+  void getNeighboringPointRightUp_test(Point *point, Display &display);
+  void getNeighboringPointRightDown_test(Point *point, Display &display);
+  void getNeighboringPointRight_test(Point *point, Display &display);
+  void getNeighboringPointLeft_test(Point *point, Display &display);
   void getNeighboringPointUp_test(Point *point, Display &display);
   void getNeighboringPointDown_test(Point *point, Display &display);
-
-
-
 };
 
 #endif // INCLUDE_ASTAR_H_

@@ -16,7 +16,7 @@ int main() {
   Point *point_test = star->findWay_test(gridmap->get_start_point_test(0, 0),
                                          gridmap->get_end_point_test(3, 7),
                                          gridmap->map_test, *display);
-  gridmap->modifyResultmap(point_test, *display); // meibiyao ,直接在print修改
+  gridmap->modifyResultmap(point_test, *display);
   display->printResultMap_test();
 
   delete display;
