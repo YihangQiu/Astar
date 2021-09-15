@@ -33,6 +33,8 @@ public:
                       const int &height);
 
   void printResultMap_test();
+  void printResultMap_test(Point *point);
+
 };
 
 #endif // INCLUDE_DISPLAY_H_

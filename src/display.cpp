@@ -72,6 +72,20 @@ void Display::printResultMap_test() {
   }
 }
 
+void Display::printResultMap_test(Point *point) {
+  printf("\n(4) Print the result map. \n");
+  for (int i = 0; i < get_x_size(); ++i) {
+    for (int j = 0; j < get_y_size(); ++j) {
+      if (get_mapdata()[i][j] == '*') {
+        printf("\e[0;31m%c\t\033[0m", get_mapdata()[i][j]);
+      } else {
+        printf("%c\t", get_mapdata()[i][j]);
+      }
+    }
+    printf("\n");
+  }
+}
+
 
 
 
