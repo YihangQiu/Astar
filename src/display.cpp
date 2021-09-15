@@ -23,8 +23,8 @@ void Display::parseMapFile() {
 void Display::printInitMap() {
   printf("\n(1) Print the status of each node, 1 means passable, 0 means "
          "obstacle. \n");
-  for (int i = 0; i < max_x; i++) {
-    for (int j = 0; j < max_y; j++) {
+  for (int i = 0; i < max_x; ++i) {
+    for (int j = 0; j < max_y; ++j) {
       printf("%c\t", mapdata_test[i][j]);
     }
     printf("\n");
