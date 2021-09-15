@@ -6,8 +6,8 @@
 int main() {
 
   resource::Display *display = new resource::Display();
-  GridMap *gridmap = new GridMap();
-  AStar *star = new AStar();
+  data::GridMap *gridmap = new data::GridMap();
+  algorithms::AStar *star = new algorithms::AStar();
 
   display->parseMapFile();
   display->printInitMap();
