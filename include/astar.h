@@ -1,71 +1,77 @@
+/**
+ * @file astar.h
+ * @brief Core algorithm, using A* algorithm for pathfinding.
+ * @author YihangQiu (qiuyihang131@gmail.com)
+ * @version 1.0
+ * @date 2021-09-15
+ *
+ * @copyright Copyright (c) 2021  yhqiu
+ *
+ */
 #ifndef INCLUDE_ASTAR_H_
 #define INCLUDE_ASTAR_H_
 
-#include "point.h"
 #include <algorithm>
 #include <math.h>
-#include <stdio.h>
-#include <vector>
-using std::vector;
 
-const int D1 = 100;
-const int D2 = 140;
+#include "point.h"
+
+using std::vector;
+const int kManhattanMoveCost = 100;
+const int kInclineMoveCost = 140;
 
 namespace algorithms {
 class AStar {
-private:
-  vector<Point *> _openList;      //开放列表
-  vector<Point *> _closeList;     //关闭列表
-  vector<Point *> _neighbourList; //周边节点
-  Point *_endPoint;
-  Point *_curPoint;
-  vector<vector<Point *>> _allPoints;
 
 public:
-  AStar() : _endPoint(nullptr), _curPoint(nullptr){};
+  AStar() : endpoint_(nullptr), curpoint_(nullptr) {}
   ~AStar() {
-    _openList.clear();
-    _closeList.clear();
-    _neighbourList.clear();
-    _allPoints.clear();
-  };
-  int get_h_manhattan(Point *point) {
-    return (abs(_endPoint->y - point->y) + abs(_endPoint->x - point->x)) * D1;
+    openlist_.clear();
+    closelist_.clear();
+    neighbourlist_.clear();
+    allpoints_.clear();
   }
-  int get_h_euclidean(Point *point) {
-    return sqrt((_endPoint->y - point->y) * (_endPoint->y - point->y) +
-                (_endPoint->x - point->x) * (_endPoint->x - point->x)) *
-           D1;
+  int getFManhattan(Point *point) { return (point->g_ + getHManhattan(point)); }
+  int getFEuclidean(Point *point) { return (point->g_ + getHEuclidean(point)); }
+  int getFOctagonal(Point *point) { return (point->g_ + getHOctagonal(point)); }
+  int getHManhattan(Point *point) {
+    return (abs(endpoint_->y_ - point->y_) + abs(endpoint_->x_ - point->x_)) *
+           kManhattanMoveCost;
   }
-  int get_h_octagonal(Point *point) {
-    return D1 * (abs(_endPoint->x - point->x) + abs(_endPoint->y - point->y)) +
-           (D2 - 2 * D1) * std::min(abs(_endPoint->x - point->x),
-                                    abs(_endPoint->y - point->y));
+  int getHEuclidean(Point *point) {
+    return sqrt((endpoint_->y_ - point->y_) * (endpoint_->y_ - point->y_) +
+                (endpoint_->x_ - point->x_) * (endpoint_->x_ - point->x_)) *
+           kManhattanMoveCost;
   }
-  int get_f_manhattan(Point *point) {
-    return (point->g + get_h_manhattan(point));
+  int getHOctagonal(Point *point) {
+    return kManhattanMoveCost * (abs(endpoint_->x_ - point->x_) +
+                                 abs(endpoint_->y_ - point->y_)) +
+           (kInclineMoveCost - 2 * kManhattanMoveCost) *
+               std::min(abs(endpoint_->x_ - point->x_),
+                        abs(endpoint_->y_ - point->y_));
   }
-  int get_f_euclidean(Point *point) {
-    return (point->g + get_h_euclidean(point));
-  }
-  int get_f_octagonal(Point *point) {
-    return (point->g + get_h_octagonal(point));
-  }
+  void computeNeighboringValue(vector<Point *> &nevec,
+                               vector<Point *> &openlist_);
+  Point *findWay(Point *beginpoint, Point *endpoint,
+                 vector<vector<Point *>> &allpoints,
+                 resource::Display &display);
+  vector<Point *> getNeighboringPoint(Point *point, resource::Display &display);
+  void getLeftDownNeighboringPoint(Point *point, resource::Display &display);
+  void getLeftUpNeighboringPoint(Point *point, resource::Display &display);
+  void getRightUpNeighboringPoint(Point *point, resource::Display &display);
+  void getRightDownNeighboringPoint(Point *point, resource::Display &display);
+  void getRightNeighboringPoint(Point *point, resource::Display &display);
+  void getLeftNeighboringPoint(Point *point, resource::Display &display);
+  void getUpNeighboringPoint(Point *point, resource::Display &display);
+  void getDownNeighboringPoint(Point *point, resource::Display &display);
 
-  void computeNeighboringValue(vector<Point *> &neVec,
-                               vector<Point *> &_openList);
-
-  Point *findWay_test(Point *beginPoint, Point *endPoint,
-                      vector<vector<Point *>> &allPoints, Display &display);
-  vector<Point *> getNeighboringPoint_test(Point *point, Display &display);
-  void getNeighboringPointLeftDown_test(Point *point, Display &display);
-  void getNeighboringPointLeftUp_test(Point *point, Display &display);
-  void getNeighboringPointRightUp_test(Point *point, Display &display);
-  void getNeighboringPointRightDown_test(Point *point, Display &display);
-  void getNeighboringPointRight_test(Point *point, Display &display);
-  void getNeighboringPointLeft_test(Point *point, Display &display);
-  void getNeighboringPointUp_test(Point *point, Display &display);
-  void getNeighboringPointDown_test(Point *point, Display &display);
+private:
+  Point *endpoint_;
+  Point *curpoint_;
+  vector<Point *> openlist_;
+  vector<Point *> closelist_;
+  vector<Point *> neighbourlist_;
+  vector<vector<Point *>> allpoints_;
 };
 
 } // namespace algorithms

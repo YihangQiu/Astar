@@ -8,10 +8,8 @@ CMakeFiles/solution.dir/src/astar.cpp.o
  /home/yhqiu/pa3/Astar_copy/src/astar.cpp
 CMakeFiles/solution.dir/src/display.cpp.o
  ../include/display.h
- ../include/point.h
  /home/yhqiu/pa3/Astar_copy/src/display.cpp
 CMakeFiles/solution.dir/src/gridmap.cpp.o
- ../include/astar.h
  ../include/display.h
  ../include/gridmap.h
  ../include/point.h

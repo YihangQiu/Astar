@@ -7,10 +7,8 @@ CMakeFiles/solution.dir/src/astar.cpp.o: ../include/point.h
 CMakeFiles/solution.dir/src/astar.cpp.o: ../src/astar.cpp
 
 CMakeFiles/solution.dir/src/display.cpp.o: ../include/display.h
-CMakeFiles/solution.dir/src/display.cpp.o: ../include/point.h
 CMakeFiles/solution.dir/src/display.cpp.o: ../src/display.cpp
 
-CMakeFiles/solution.dir/src/gridmap.cpp.o: ../include/astar.h
 CMakeFiles/solution.dir/src/gridmap.cpp.o: ../include/display.h
 CMakeFiles/solution.dir/src/gridmap.cpp.o: ../include/gridmap.h
 CMakeFiles/solution.dir/src/gridmap.cpp.o: ../include/point.h

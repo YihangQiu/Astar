@@ -1,23 +1,35 @@
+/**
+ * @file gridmap.h
+ * @brief Define the attributes of each point in a graph.
+ * @author YihangQiu (qiuyihang131@gmail.com)
+ * @version 1.0
+ * @date 2021-09-15
+ *
+ * @copyright Copyright (c) 2021  yhqiu
+ *
+ */
 #ifndef INCLUDE_GRIDMAP_H_
 #define INCLUDE_GRIDMAP_H_
-#include "astar.h"
+
 #include "display.h"
 #include "point.h"
 
 namespace data {
 class GridMap {
-private:
-  // vector<vector<Point *>> map_test;
 
 public:
   GridMap() {}
   ~GridMap() {}
-  vector<vector<Point *>> map_test;
-  void createGridMap(Display &display);
-  void printResultMap(Point *point, Display &display);
-  Point *get_start_point_test(int x, int y) { return map_test[x][y]; }
-  Point *get_end_point_test(int x, int y) { return map_test[x][y]; }
-  vector<vector<Point *>> get_map_test() { return map_test; }
+
+  void createGridMap(resource::Display &display);
+  void printResultMap(Point *point, resource::Display &display);
+
+  Point *getStartPoint(const int x, const int y) const { return map_[x][y]; }
+  Point *getEndPoint(const int x, const int y) const { return map_[x][y]; }
+  vector<vector<Point *>> &get_map_() { return map_; }
+
+private:
+  vector<vector<Point *>> map_;
 };
 
 } // namespace data
