@@ -18,7 +18,7 @@ using std::ifstream;
 namespace resource {
 
 void Display::parseMapFile() {
-  ifstream mapfile("../testcase/map.txt");
+  ifstream mapfile("../resource/map.txt");
   assert(mapfile.is_open());
   std::string line;
   vector<char> tmp;
