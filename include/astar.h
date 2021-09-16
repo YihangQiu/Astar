@@ -17,8 +17,8 @@
 #include "point.h"
 
 using std::vector;
-const int kManhattanMoveCost = 100;
-const int kInclineMoveCost = 140;
+constexpr int kManhattanMoveCost = 100;
+constexpr int kInclineMoveCost = 140;
 
 namespace algorithms {
 class AStar {
