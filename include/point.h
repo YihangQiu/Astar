@@ -20,36 +20,46 @@ enum class Type {
   TYPE_BARRIER,
   TYPE_PATH
 };
-enum class Direction { MANHATTAN, INCLINE };
+enum class Direction { MANHATTAN, INCLINE, EUCLIDEAN, OCTAGONAL };
+enum class FindDirection {
+  UP,
+  DOWN,
+  LEFT,
+  RIGHT,
+  LEFTDOWN,
+  RIGHTUP,
+  LEFTUP,
+  RIGHTDOWN
+};
 
 class Point {
 
 public:
   Point()
-      : x_(0), y_(0), h_(0), f_(0), g_(0), parent_(nullptr),
-        type_(Type::TYPE_UNKNOWN){};
-  ~Point(){};
+      : _x(0), _y(0), _h(0), _f(0), _g(0), _parent(nullptr),
+        _type(Type::TYPE_UNKNOWN){};
+  ~Point() = default;
   bool operator==(const Point &point) {
-    if (x_ == point.x_ && y_ == point.y_) {
+    if (_x == point._x && _y == point._y) {
       return true;
     }
     return false;
   }
   bool operator!=(const Point &point) {
-    if (x_ != point.x_ || y_ != point.y_) {
+    if (_x != point._x || _y != point._y) {
       return true;
     }
     return false;
   }
 
-  int x_;
-  int y_;
-  int f_;
-  int g_;
-  int h_;
-  Point *parent_;
-  Type type_;
-  Direction direction_;
+  int _x;
+  int _y;
+  int _f;
+  int _g;
+  int _h;
+  Point *_parent;
+  Type _type;
+  Direction _direction;
 };
 
 #endif // INCLUDE_POINT_H_

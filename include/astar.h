@@ -20,62 +20,38 @@ using std::vector;
 constexpr int kManhattanMoveCost = 100;
 constexpr int kInclineMoveCost = 140;
 
-namespace algorithms {
+namespace model {
 class AStar {
 
 public:
-  AStar() : endpoint_(nullptr), curpoint_(nullptr) {}
+  AStar() : _endpoint(nullptr), _curpoint(nullptr) {}
   ~AStar() {
-    openlist_.clear();
-    closelist_.clear();
-    neighbourlist_.clear();
-    allpoints_.clear();
+    _openlist.clear();
+    _closelist.clear();
+    _neighbourlist.clear();
+    _allpoints.clear();
   }
-  bool foundWay() { return findway_; }
-  int getFManhattan(Point *point) { return (point->g_ + getHManhattan(point)); }
-  int getFEuclidean(Point *point) { return (point->g_ + getHEuclidean(point)); }
-  int getFOctagonal(Point *point) { return (point->g_ + getHOctagonal(point)); }
-  int getHManhattan(Point *point) {
-    return (abs(endpoint_->y_ - point->y_) + abs(endpoint_->x_ - point->x_)) *
-           kManhattanMoveCost;
-  }
-  int getHEuclidean(Point *point) {
-    return sqrt((endpoint_->y_ - point->y_) * (endpoint_->y_ - point->y_) +
-                (endpoint_->x_ - point->x_) * (endpoint_->x_ - point->x_)) *
-           kManhattanMoveCost;
-  }
-  int getHOctagonal(Point *point) {
-    return kManhattanMoveCost * (abs(endpoint_->x_ - point->x_) +
-                                 abs(endpoint_->y_ - point->y_)) +
-           (kInclineMoveCost - 2 * kManhattanMoveCost) *
-               std::min(abs(endpoint_->x_ - point->x_),
-                        abs(endpoint_->y_ - point->y_));
-  }
+  int computeFCost(Point *point, const Direction &direction);
+  int computeHCost(Point *point, const Direction &direction);
+  bool foundWay() { return _findway; }
+  void findOneNeighborPoint(Point *point, Display &display,
+                            const FindDirection &finddirection);
   void computeNeighboringValue(vector<Point *> &nevec,
                                vector<Point *> &openlist_);
   Point *findWay(Point *beginpoint, Point *endpoint,
-                 vector<vector<Point *>> &allpoints,
-                 resource::Display &display);
-  vector<Point *> getNeighboringPoint(Point *point, resource::Display &display);
-  void getLeftDownNeighboringPoint(Point *point, resource::Display &display);
-  void getLeftUpNeighboringPoint(Point *point, resource::Display &display);
-  void getRightUpNeighboringPoint(Point *point, resource::Display &display);
-  void getRightDownNeighboringPoint(Point *point, resource::Display &display);
-  void getRightNeighboringPoint(Point *point, resource::Display &display);
-  void getLeftNeighboringPoint(Point *point, resource::Display &display);
-  void getUpNeighboringPoint(Point *point, resource::Display &display);
-  void getDownNeighboringPoint(Point *point, resource::Display &display);
+                 vector<vector<Point *>> &allpoints, Display &display);
+  vector<Point *> findNeighboringPoint(Point *point, Display &display);
 
 private:
-  Point *endpoint_;
-  Point *curpoint_;
-  bool findway_;
-  vector<Point *> openlist_;
-  vector<Point *> closelist_;
-  vector<Point *> neighbourlist_;
-  vector<vector<Point *>> allpoints_;
+  Point *_endpoint;
+  Point *_curpoint;
+  bool _findway;
+  vector<Point *> _openlist;
+  vector<Point *> _closelist;
+  vector<Point *> _neighbourlist;
+  vector<vector<Point *>> _allpoints;
 };
 
-} // namespace algorithms
+} // namespace model
 
 #endif // INCLUDE_ASTAR_H_

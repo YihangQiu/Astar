@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 9,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 5,
+				"line" : 3,
 				"parent" : 0
 			}
 		]
@@ -49,7 +49,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/yhqiu/pa3/Astar_copy/include"
+					"path" : "/home/yhqiu/pa3/astar/include"
 				}
 			],
 			"language" : "CXX",

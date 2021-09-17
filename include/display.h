@@ -15,24 +15,26 @@
 #include <vector>
 using std::vector;
 
-namespace resource {
+namespace model {
 class Display {
 
 public:
-  Display(){};
-  ~Display(){};
+  Display() = default;
+  ~Display() = default;
+
+  int get_max_row() const { return _max_row; }
+  int get_max_colunm() const { return _max_column; }
+  vector<vector<char>> get_mapdata() const { return _mapdata; }
+
   void parseMapFile();
   void printInitMap();
-  int get_max_row_() const { return max_row_; }
-  int get_max_colunm_() const { return max_column_; }
-  vector<vector<char>> get_mapdata_() const { return mapdata_; }
 
 private:
-  int max_row_ = 0;
-  int max_column_ = 0;
-  vector<vector<char>> mapdata_;
+  int _max_row = 0;
+  int _max_column = 0;
+  vector<vector<char>> _mapdata;
 };
 
-} // namespace resource
+} // namespace model
 
 #endif // INCLUDE_DISPLAY_H_

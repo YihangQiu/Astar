@@ -10,45 +10,45 @@
  */
 #include "gridmap.h"
 
-namespace data {
+namespace model {
 
-void GridMap::createGridMap(resource::Display &display) {
-  for (int row = 0; row < display.get_max_row_(); ++row) {
+void GridMap::createGridMap(Display &display) {
+  for (int row = 0; row < display.get_max_row(); ++row) {
     vector<Point *> tmp;
-    for (int column = 0; column < display.get_max_colunm_(); ++column) {
+    for (int column = 0; column < display.get_max_colunm(); ++column) {
       Point *point = new Point();
-      point->x_ = row;
-      point->y_ = column;
-      if (display.get_mapdata_()[row][column] == '0') {
-        point->type_ = Type::TYPE_BARRIER;
+      point->_x = row;
+      point->_y = column;
+      if (display.get_mapdata()[row][column] == '0') {
+        point->_type = Type::TYPE_BARRIER;
       }
       tmp.push_back(point);
     }
-    map_.push_back(tmp);
+    _map.push_back(tmp);
   }
 #ifndef _GTEST
   printf("\e[0;32m[SUCCESS]\033[0m gridmap->createGridMap(): Initialize the "
-         "coordinates, type_, cost and parent_ pointer of each node. \n");
+         "coordinates, _type, cost and _parent pointer of each node. \n");
 #endif
 }
 
-void GridMap::printResultMap(Point *resultpoint, resource::Display &display) {
+void GridMap::printResultMap(Point *resultpoint, Display &display) {
   while (resultpoint) {
-    resultpoint->type_ = Type::TYPE_PATH;
-    resultpoint = resultpoint->parent_;
+    resultpoint->_type = Type::TYPE_PATH;
+    resultpoint = resultpoint->_parent;
   }
   printf("\e[0;32m[SUCCESS]\033[0m gridmap->printResultmap(): Print the "
          "result map.\n");
-  for (int row = 0; row < display.get_max_row_(); ++row) {
-    for (int column = 0; column < display.get_max_colunm_(); ++column) {
-      if (map_[row][column]->type_ == Type::TYPE_PATH) {
+  for (int row = 0; row < display.get_max_row(); ++row) {
+    for (int column = 0; column < display.get_max_colunm(); ++column) {
+      if (_map[row][column]->_type == Type::TYPE_PATH) {
         printf("\e[1;31m*\t\033[0m");
       } else {
-        printf("%c\t", display.get_mapdata_()[row][column]);
+        printf("%c\t", display.get_mapdata()[row][column]);
       }
     }
     printf("\n");
   }
 }
 
-} // namespace data
+} // namespace model

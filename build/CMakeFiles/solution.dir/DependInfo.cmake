@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/yhqiu/pa3/Astar_copy/src/astar.cpp" "/home/yhqiu/pa3/Astar_copy/build/CMakeFiles/solution.dir/src/astar.cpp.o"
-  "/home/yhqiu/pa3/Astar_copy/src/display.cpp" "/home/yhqiu/pa3/Astar_copy/build/CMakeFiles/solution.dir/src/display.cpp.o"
-  "/home/yhqiu/pa3/Astar_copy/src/gridmap.cpp" "/home/yhqiu/pa3/Astar_copy/build/CMakeFiles/solution.dir/src/gridmap.cpp.o"
-  "/home/yhqiu/pa3/Astar_copy/src/main.cpp" "/home/yhqiu/pa3/Astar_copy/build/CMakeFiles/solution.dir/src/main.cpp.o"
+  "/home/yhqiu/pa3/astar/src/astar.cpp" "/home/yhqiu/pa3/astar/build/CMakeFiles/solution.dir/src/astar.cpp.o"
+  "/home/yhqiu/pa3/astar/src/display.cpp" "/home/yhqiu/pa3/astar/build/CMakeFiles/solution.dir/src/display.cpp.o"
+  "/home/yhqiu/pa3/astar/src/gridmap.cpp" "/home/yhqiu/pa3/astar/build/CMakeFiles/solution.dir/src/gridmap.cpp.o"
+  "/home/yhqiu/pa3/astar/src/main.cpp" "/home/yhqiu/pa3/astar/build/CMakeFiles/solution.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

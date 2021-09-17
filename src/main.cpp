@@ -12,17 +12,18 @@
 #include "display.h"
 #include "gridmap.h"
 #include "point.h"
+using namespace model;
 
 int main() {
-  resource::Display *display = new resource::Display();
-  data::GridMap *gridmap = new data::GridMap();
-  algorithms::AStar *star = new algorithms::AStar();
+  Display *display = new Display();
+  GridMap *gridmap = new GridMap();
+  AStar *star = new AStar();
 
   display->parseMapFile();
   display->printInitMap();
   gridmap->createGridMap(*display);
-  Point *point = star->findWay(gridmap->set_start_point(0, 0),
-                               gridmap->set_end_point(3, 7),
+  Point *point = star->findWay(gridmap->get_start_point(0, 0),
+                               gridmap->get_end_point(3, 7),
                                gridmap->get_map_(), *display);
   gridmap->printResultMap(point, *display);
 

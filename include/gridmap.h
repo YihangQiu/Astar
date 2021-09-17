@@ -14,25 +14,24 @@
 #include "display.h"
 #include "point.h"
 
-namespace data {
+namespace model {
 class GridMap {
 
 public:
-  GridMap() {}
-  ~GridMap() {}
+  GridMap() = default;
+  ~GridMap() = default;
 
-  void createGridMap(resource::Display &display);
-  void printResultMap(Point *point, resource::Display &display);
+  Point *get_start_point(const int x, const int y) const { return _map[x][y]; }
+  Point *get_end_point(const int x, const int y) const { return _map[x][y]; }
+  vector<vector<Point *>> &get_map_() { return _map; }
 
-  Point *set_start_point(const int x, const int y) const { return map_[x][y]; }
-  Point *set_end_point(const int x, const int y) const { return map_[x][y]; }
-
-  vector<vector<Point *>> &get_map_() { return map_; }
+  void createGridMap(Display &display);
+  void printResultMap(Point *point, Display &display);
 
 private:
-  vector<vector<Point *>> map_;
+  vector<vector<Point *>> _map;
 };
 
-} // namespace data
+} // namespace model
 
 #endif // INCLUDE_GRIDMAP_H_

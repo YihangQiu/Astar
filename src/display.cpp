@@ -15,7 +15,7 @@
 
 using std::ifstream;
 
-namespace resource {
+namespace model {
 
 void Display::parseMapFile() {
   ifstream mapfile("../resource/map.txt");
@@ -26,11 +26,11 @@ void Display::parseMapFile() {
     for (auto &word : line) {
       tmp.push_back(word);
     }
-    mapdata_.push_back(tmp);
+    _mapdata.push_back(tmp);
     tmp.clear();
   }
-  max_row_ = mapdata_.size();
-  max_column_ = mapdata_[0].size();
+  _max_row = _mapdata.size();
+  _max_column = _mapdata[0].size();
   mapfile.close();
 #ifndef _GTEST
   printf("\e[0;32m[SUCCESS]\033[0m display->parseMapFile(): Read external "
@@ -41,12 +41,12 @@ void Display::parseMapFile() {
 void Display::printInitMap() {
   printf("\e[0;32m[SUCCESS]\033[0m display->printInitMap(): Print the status "
          "of each node, 1 means passable, 0 means obstacle.\n");
-  for (int row = 0; row < max_row_; ++row) {
-    for (int column = 0; column < max_column_; ++column) {
-      printf("%c\t", mapdata_[row][column]);
+  for (int row = 0; row < _max_row; ++row) {
+    for (int column = 0; column < _max_column; ++column) {
+      printf("%c\t", _mapdata[row][column]);
     }
     printf("\n");
   }
 }
 
-} // namespace resource
+} // namespace model

@@ -30,31 +30,31 @@ point.h
 display.h
 ../include/display.h
 
-/home/yhqiu/pa3/Astar_copy/src/astar.cpp
+/home/yhqiu/pa3/astar/src/astar.cpp
 astar.h
-/home/yhqiu/pa3/Astar_copy/src/astar.h
+/home/yhqiu/pa3/astar/src/astar.h
 time.h
 -
 
-/home/yhqiu/pa3/Astar_copy/src/display.cpp
+/home/yhqiu/pa3/astar/src/display.cpp
 display.h
-/home/yhqiu/pa3/Astar_copy/src/display.h
+/home/yhqiu/pa3/astar/src/display.h
 assert.h
 -
 fstream
 -
 
-/home/yhqiu/pa3/Astar_copy/src/gridmap.cpp
+/home/yhqiu/pa3/astar/src/gridmap.cpp
 gridmap.h
-/home/yhqiu/pa3/Astar_copy/src/gridmap.h
+/home/yhqiu/pa3/astar/src/gridmap.h
 
-/home/yhqiu/pa3/Astar_copy/src/main.cpp
+/home/yhqiu/pa3/astar/src/main.cpp
 astar.h
-/home/yhqiu/pa3/Astar_copy/src/astar.h
+/home/yhqiu/pa3/astar/src/astar.h
 display.h
-/home/yhqiu/pa3/Astar_copy/src/display.h
+/home/yhqiu/pa3/astar/src/display.h
 gridmap.h
-/home/yhqiu/pa3/Astar_copy/src/gridmap.h
+/home/yhqiu/pa3/astar/src/gridmap.h
 point.h
-/home/yhqiu/pa3/Astar_copy/src/point.h
+/home/yhqiu/pa3/astar/src/point.h
 

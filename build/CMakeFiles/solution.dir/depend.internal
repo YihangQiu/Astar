@@ -5,18 +5,18 @@ CMakeFiles/solution.dir/src/astar.cpp.o
  ../include/astar.h
  ../include/display.h
  ../include/point.h
- /home/yhqiu/pa3/Astar_copy/src/astar.cpp
+ /home/yhqiu/pa3/astar/src/astar.cpp
 CMakeFiles/solution.dir/src/display.cpp.o
  ../include/display.h
- /home/yhqiu/pa3/Astar_copy/src/display.cpp
+ /home/yhqiu/pa3/astar/src/display.cpp
 CMakeFiles/solution.dir/src/gridmap.cpp.o
  ../include/display.h
  ../include/gridmap.h
  ../include/point.h
- /home/yhqiu/pa3/Astar_copy/src/gridmap.cpp
+ /home/yhqiu/pa3/astar/src/gridmap.cpp
 CMakeFiles/solution.dir/src/main.cpp.o
  ../include/astar.h
  ../include/display.h
  ../include/gridmap.h
  ../include/point.h
- /home/yhqiu/pa3/Astar_copy/src/main.cpp
+ /home/yhqiu/pa3/astar/src/main.cpp
