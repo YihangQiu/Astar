@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include <vector>
+
 using std::vector;
 
 namespace model {

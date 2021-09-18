@@ -11,10 +11,10 @@
 #ifndef INCLUDE_ASTAR_H_
 #define INCLUDE_ASTAR_H_
 
-#include <algorithm>
-#include <math.h>
-
 #include "point.h"
+#include <algorithm>
+#include <assert.h>
+#include <math.h>
 
 using std::vector;
 constexpr int kManhattanMoveCost = 100;
@@ -34,10 +34,14 @@ public:
   int computeFCost(Point *point, const Direction &direction);
   int computeHCost(Point *point, const Direction &direction);
   bool foundWay() { return _findway; }
+  void computeValueNotInOpenList(Point *point);
+  void computeValueInOpenList(Point *point);
   void findOneNeighborPoint(Point *point, Display &display,
                             const FindDirection &finddirection);
   void computeNeighboringValue(vector<Point *> &nevec,
                                vector<Point *> &openlist_);
+  void findWayPreprocess(Point *beginpoint, Point *endpoint,
+                         vector<vector<Point *>> &allpoints);
   Point *findWay(Point *beginpoint, Point *endpoint,
                  vector<vector<Point *>> &allpoints, Display &display);
   vector<Point *> findNeighboringPoint(Point *point, Display &display);

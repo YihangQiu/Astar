@@ -9,7 +9,6 @@
  *
  */
 #include "astar.h"
-#include <time.h>
 
 namespace model {
 
@@ -17,30 +16,43 @@ bool SortCompare(const Point *point1, const Point *point2) {
   return point1->_f < point2->_f;
 }
 
-Point *AStar::findWay(Point *beginpoint, Point *endpoint,
-                      vector<vector<Point *>> &allpoints, Display &display) {
+void AStar::findWayPreprocess(Point *beginpoint, Point *endpoint,
+                              vector<vector<Point *>> &allpoints) {
 #ifndef _GTEST
   printf("\e[0;32m[SUCCESS]\033[0m point->findWay(): Finding the shortest path "
          "using AStar Algorithms.\n"
          "\e[0;34mThe startpoint:[%d][%d] ---> The endpoint:[%d][%d]\033[0m\n",
          beginpoint->_x, beginpoint->_y, endpoint->_x, endpoint->_y);
 #endif
-  clock_t start_time = clock();
   _allpoints = allpoints;
   _endpoint = endpoint;
   if (_endpoint->_type == Type::TYPE_BARRIER) {
     printf("The end point is an obstacle.\n");
     _findway = false;
-    return nullptr;
+    assert(false);
   }
   if (*_endpoint == *beginpoint) {
     printf("The start and end points are the same.\n");
     _findway = false;
-    return nullptr;
+    assert(false);
   }
   _openlist.push_back(beginpoint);
   beginpoint->_type = Type::TYPE_OPENED;
   beginpoint->_f = computeFCost(beginpoint, Direction::OCTAGONAL);
+}
+/**
+ * @brief  A star algorithms implementation.
+ * @link   https://www.redblobgames.com/pathfinding/a-star/introduction.html
+ * @param  *beginpoint: the startpoint
+ * @param  *endpoint: the endpoint
+ * @param  &allpoints: the girdmap
+ * @param  &display: the information of input file
+ * @retval all the points in the shortest path
+ */
+Point *AStar::findWay(Point *beginpoint, Point *endpoint,
+                      vector<vector<Point *>> &allpoints, Display &display) {
+  findWayPreprocess(beginpoint, endpoint, allpoints);
+
   int step_count = 0;
   do {
     ++step_count;
@@ -49,17 +61,13 @@ Point *AStar::findWay(Point *beginpoint, Point *endpoint,
     printf("\e[0;34mStep %d: point[%d][%d] is selected\033[0m \n", step_count,
            _curpoint->_x, _curpoint->_y);
 #endif
-
     _openlist.erase(_openlist.begin());
     _curpoint->_type = Type::TYPE_CLOSED;
     _closelist.push_back(_curpoint);
     if (*_curpoint == *_endpoint) {
-      clock_t end_time = clock();
       _findway = true;
 #ifndef _GTEST
       printf("Found way and end searching.\n");
-      printf("\e[0;34mThe runtime of A* algorithm is %ld ms.\033[0m \n",
-             end_time - start_time);
 #endif
       return _curpoint;
     }
@@ -227,6 +235,44 @@ void AStar::findOneNeighborPoint(Point *point, Display &display,
   }
 }
 
+void AStar::computeValueNotInOpenList(Point *tmpoint) {
+  tmpoint->_parent = _curpoint;
+  if (tmpoint->_direction == Direction::MANHATTAN) {
+    tmpoint->_g = _curpoint->_g + kManhattanMoveCost;
+#ifndef _GTEST
+    printf("point[%d][%d]:\tvalue_G=%d", tmpoint->_x, tmpoint->_y, tmpoint->_g);
+#endif
+  } else {
+    tmpoint->_g = _curpoint->_g + kInclineMoveCost;
+#ifndef _GTEST
+    printf("point[%d][%d]:\tvalue_G=%d", tmpoint->_x, tmpoint->_y, tmpoint->_g);
+#endif
+  }
+  tmpoint->_h = computeHCost(tmpoint, Direction::OCTAGONAL);
+  tmpoint->_f = computeFCost(tmpoint, Direction::OCTAGONAL);
+#ifndef _GTEST
+  printf("\tvalue_H=%d\tvalue_F=%d\n", tmpoint->_h, tmpoint->_f);
+#endif
+  _openlist.push_back(tmpoint);
+  tmpoint->_type = Type::TYPE_OPENED;
+}
+
+void AStar::computeValueInOpenList(Point *tmpoint) {
+  if (tmpoint->_h < _curpoint->_h) {
+    tmpoint->_parent = _curpoint;
+    if (tmpoint->_direction == Direction::MANHATTAN) {
+      tmpoint->_g = _curpoint->_g + kManhattanMoveCost;
+    } else {
+      tmpoint->_g = _curpoint->_g + kInclineMoveCost;
+    }
+    tmpoint->_f = computeFCost(tmpoint, Direction::OCTAGONAL);
+  }
+#ifndef _GTEST
+  printf("point[%d][%d]:\tvalue_G=%d\tvalue_H=%d\tvalue_F=%d\n", tmpoint->_x,
+         tmpoint->_y, tmpoint->_g, tmpoint->_h, tmpoint->_f);
+#endif
+}
+
 void AStar::computeNeighboringValue(vector<Point *> &nevec,
                                     vector<Point *> &openlist_) {
   for (int i = 0; i < nevec.size(); ++i) {
@@ -235,41 +281,9 @@ void AStar::computeNeighboringValue(vector<Point *> &nevec,
       continue;
     }
     if (tmpoint->_type != Type::TYPE_OPENED) {
-      tmpoint->_parent = _curpoint;
-      if (tmpoint->_direction == Direction::MANHATTAN) {
-        tmpoint->_g = _curpoint->_g + kManhattanMoveCost;
-#ifndef _GTEST
-        printf("point[%d][%d]:\tvalue_G=%d", tmpoint->_x, tmpoint->_y,
-               tmpoint->_g);
-#endif
-      } else {
-        tmpoint->_g = _curpoint->_g + kInclineMoveCost;
-#ifndef _GTEST
-        printf("point[%d][%d]:\tvalue_G=%d", tmpoint->_x, tmpoint->_y,
-               tmpoint->_g);
-#endif
-      }
-      tmpoint->_h = computeHCost(tmpoint, Direction::OCTAGONAL);
-      tmpoint->_f = computeFCost(tmpoint, Direction::OCTAGONAL);
-#ifndef _GTEST
-      printf("\tvalue_H=%d\tvalue_F=%d\n", tmpoint->_h, tmpoint->_f);
-#endif
-      openlist_.push_back(tmpoint);
-      tmpoint->_type = Type::TYPE_OPENED;
+      computeValueNotInOpenList(tmpoint);
     } else {
-      if (tmpoint->_h < _curpoint->_h) {
-        tmpoint->_parent = _curpoint;
-        if (tmpoint->_direction == Direction::MANHATTAN) {
-          tmpoint->_g = _curpoint->_g + kManhattanMoveCost;
-        } else {
-          tmpoint->_g = _curpoint->_g + kInclineMoveCost;
-        }
-        tmpoint->_f = computeFCost(tmpoint, Direction::OCTAGONAL);
-      }
-#ifndef _GTEST
-      printf("point[%d][%d]:\tvalue_G=%d\tvalue_H=%d\tvalue_F=%d\n",
-             tmpoint->_x, tmpoint->_y, tmpoint->_g, tmpoint->_h, tmpoint->_f);
-#endif
+      computeValueInOpenList(tmpoint);
     }
   }
 }
